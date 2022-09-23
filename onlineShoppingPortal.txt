@@ -1,0 +1,192 @@
+onlineShoppingPortal
+==================
+
+>use ops
+switched to db ops
+> db
+ops
+> db.customer
+ops.customer
+> db.customer.insertMany([{"customername" : "pari" , "customeremail" : "pari@gmail.com", "customermobno" : 9876543210 , "customerwallet" : "1254" , "customerAddress" : {"customercity" : "Delhi", "customerpincode" : 570269, "customeraddress" : "xyz nagar"}} ,{"customername" : "rishi" , "customeremail" : "rishi@gmail.com", "customermobno" : 9899943210 , "customerwallet" : "5000" , "customerAddress" : {"customercity" : "Banglore", "customerpincode" : 588269, "customeraddress" : "pqr nagar"}}, {"customername" : "veda" , "customeremail" : "veda@gmail.com", "customermobno" : 9876540000 , "customerwallet" : "3500" , "customerAddress" : {"customercity" : "Delhi", "customerpincode" : 600012, "customeraddress" : "abc nagar"}}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("632d676606687b96737da875"),
+                ObjectId("632d676606687b96737da876"),
+                ObjectId("632d676606687b96737da877")
+        ]
+}
+> db.customer.find().pretty()
+{
+        "_id" : ObjectId("632d676606687b96737da875"),
+        "customername" : "pari",
+        "customeremail" : "pari@gmail.com",
+        "customermobno" : 9876543210,
+        "customerwallet" : "1254",
+        "customerAddress" : {
+                "customercity" : "Delhi",
+                "customerpincode" : 570269,
+                "customeraddress" : "xyz nagar"
+        }
+}
+{
+        "_id" : ObjectId("632d676606687b96737da876"),
+        "customername" : "rishi",
+        "customeremail" : "rishi@gmail.com",
+        "customermobno" : 9899943210,
+        "customerwallet" : "5000",
+        "customerAddress" : {
+                "customercity" : "Banglore",
+                "customerpincode" : 588269,
+                "customeraddress" : "pqr nagar"
+        }
+}
+{
+        "_id" : ObjectId("632d676606687b96737da877"),
+        "customername" : "veda",
+        "customeremail" : "veda@gmail.com",
+        "customermobno" : 9876540000,
+        "customerwallet" : "3500",
+        "customerAddress" : {
+                "customercity" : "Delhi",
+                "customerpincode" : 600012,
+                "customeraddress" : "abc nagar"
+        }
+}
+> db.order
+ops.order
+> db.order.insertMany([{"orderid" : "01", "orderstatus" : "pending", "orderamount" : 695},{"orderid" : "02", "orderstatus" : "ordered", "orderamount" : 2095},{"orderid" : "03", "orderstatus" : "pending", "orderamount" : 1028}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("632d67a706687b96737da878"),
+                ObjectId("632d67a706687b96737da879"),
+                ObjectId("632d67a706687b96737da87a")
+        ]
+}
+> db.order.find().pretty()
+{
+        "_id" : ObjectId("632d67a706687b96737da878"),
+        "orderid" : "01",
+        "orderstatus" : "pending",
+        "orderamount" : 695
+}
+{
+        "_id" : ObjectId("632d67a706687b96737da879"),
+        "orderid" : "02",
+        "orderstatus" : "ordered",
+        "orderamount" : 2095
+}
+{
+        "_id" : ObjectId("632d67a706687b96737da87a"),
+        "orderid" : "03",
+        "orderstatus" : "pending",
+        "orderamount" : 1028
+}
+> db.vendor
+ops.vendor
+> db.vendor.insertMany([{"vendorname" : "tara", "vendoremail" : "tara@gmail.com", "vendormobno" : 9632541780, "vendorwallet" : 2643},{"vendorname" : "vicky", "vendoremail" : "vicky@gmail.com", "vendormobno" : 8832541780, "vendorwallet" : 4643}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("632d67e606687b96737da87b"),
+                ObjectId("632d67e606687b96737da87c")
+        ]
+}
+> db.vendor.find().pretty()
+{
+        "_id" : ObjectId("632d67e606687b96737da87b"),
+        "vendorname" : "tara",
+        "vendoremail" : "tara@gmail.com",
+        "vendormobno" : 9632541780,
+        "vendorwallet" : 2643
+}
+{
+        "_id" : ObjectId("632d67e606687b96737da87c"),
+        "vendorname" : "vicky",
+        "vendoremail" : "vicky@gmail.com",
+        "vendormobno" : 8832541780,
+        "vendorwallet" : 4643
+}
+> db.product
+ops.product
+> db.products
+ops.products
+> db.products.insertMany([{"productname" : "noise earbuds", "productcategory" : "electronic gadgets", "productprice" : 899},{"productname" : "onida TV", "productcategory" : "electronic gadgets", "productprice" : 155899},{"productname" : "redmi pro", "productcategory" : "electronic gadgets", "productprice" : 11899}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("632d684c06687b96737da87d"),
+                ObjectId("632d684c06687b96737da87e"),
+                ObjectId("632d684c06687b96737da87f")
+        ]
+}
+> db.products.find().pretty()
+{
+        "_id" : ObjectId("632d684c06687b96737da87d"),
+        "productname" : "noise earbuds",
+        "productcategory" : "electronic gadgets",
+        "productprice" : 899
+}
+{
+        "_id" : ObjectId("632d684c06687b96737da87e"),
+        "productname" : "onida TV",
+        "productcategory" : "electronic gadgets",
+        "productprice" : 155899
+}
+{
+        "_id" : ObjectId("632d684c06687b96737da87f"),
+        "productname" : "redmi pro",
+        "productcategory" : "electronic gadgets",
+        "productprice" : 11899
+}
+> db.customer.find({customeraddress.customercity : "Delhi"});
+uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:33
+> db.customer.find({},{"customeraddress.customercity":"Delhi"}).pretty();
+{
+        "_id" : ObjectId("632d676606687b96737da875"),
+        "customeraddress" : {
+                "customercity" : "Delhi"
+        }
+}
+{
+        "_id" : ObjectId("632d676606687b96737da876"),
+        "customeraddress" : {
+                "customercity" : "Delhi"
+        }
+}
+{
+        "_id" : ObjectId("632d676606687b96737da877"),
+        "customeraddress" : {
+                "customercity" : "Delhi"
+        }
+}
+> db.products.find({},{"productname" : 1, "productprice" : 1}).pretty();
+{
+        "_id" : ObjectId("632d684c06687b96737da87d"),
+        "productname" : "noise earbuds",
+        "productprice" : 899
+}
+{
+        "_id" : ObjectId("632d684c06687b96737da87e"),
+        "productname" : "onida TV",
+        "productprice" : 155899
+}
+{
+        "_id" : ObjectId("632d684c06687b96737da87f"),
+        "productname" : "redmi pro",
+        "productprice" : 11899
+}
+> db.order.find({"orderstatus" : "pending"});
+{ "_id" : ObjectId("632d67a706687b96737da878"), "orderid" : "01", "orderstatus" : "pending", "orderamount" : 695 }
+{ "_id" : ObjectId("632d67a706687b96737da87a"), "orderid" : "03", "orderstatus" : "pending", "orderamount" : 1028 }
+> db.customer.find({},{"customeraddress.customerpincode":600012}).pretty();
+{ "_id" : ObjectId("632d676606687b96737da875") }
+{ "_id" : ObjectId("632d676606687b96737da876") }
+{ "_id" : ObjectId("632d676606687b96737da877") }
+> db.products.find({},{"customeraddress.customerpincode" : 600012, "customername" : 1}).pretty();
+{ "_id" : ObjectId("632d684c06687b96737da87d") }
+{ "_id" : ObjectId("632d684c06687b96737da87e") }
+{ "_id" : ObjectId("632d684c06687b96737da87f") }
+>
